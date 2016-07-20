@@ -51,6 +51,7 @@ public class LoginActivity extends BaseActivity {
                 startActivity(intent);
             }
         }, 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        register.append(string1);
 
         SpannableString string2 = new SpannableString(text2);
         string2.setSpan(new ClickableSpan() {
@@ -60,6 +61,7 @@ public class LoginActivity extends BaseActivity {
                 startActivity(intent);
             }
         }, 0, text2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        fogotPass.append(string2);
 
         boolean isRemember = pref.getBoolean("remember_password", false);
         if (isRemember) {

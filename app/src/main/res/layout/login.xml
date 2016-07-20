@@ -33,14 +33,6 @@
             android:text="Remember password"/>
     </TableRow>
 
-    <TableRow>
-        <TextView
-            android:id="@+id/register"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/foget_pass"
-            android:layout_height="wrap_content" />
-    </TableRow>
 
     <TableRow>
         <Button
@@ -48,6 +40,19 @@
             android:layout_height="wrap_content"
             android:layout_span="2"
             android:text="Login"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"/>
+        <TextView
+            android:id="@+id/foget_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"/>
     </TableRow>
 
 </TableLayout>
