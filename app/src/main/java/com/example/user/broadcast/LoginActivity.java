@@ -2,10 +2,12 @@ package com.example.user.broadcast;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.style.BackgroundColorSpan;
 import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +53,7 @@ public class LoginActivity extends BaseActivity {
                 startActivity(intent);
             }
         }, 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        string1.setSpan(new BackgroundColorSpan(Color.BLUE), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         register.append(string1);
 
         SpannableString string2 = new SpannableString(text2);
@@ -61,6 +64,7 @@ public class LoginActivity extends BaseActivity {
                 startActivity(intent);
             }
         }, 0, text2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        string2.setSpan(new BackgroundColorSpan(Color.BLUE), 0, text2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         fogotPass.append(string2);
 
         boolean isRemember = pref.getBoolean("remember_password", false);
