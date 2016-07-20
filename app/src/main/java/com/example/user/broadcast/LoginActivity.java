@@ -41,8 +41,8 @@ public class LoginActivity extends BaseActivity {
         login = (Button) findViewById(R.id.login);
         register = (TextView) findViewById(R.id.register);
         fogotPass = (TextView) findViewById(R.id.foget_pass);
-        String text1 = "Register";
-        String text2 = "Fogot password";
+        String text1 = "   Register";
+        String text2 = "Fogot password    ";
         SpannableString string1 = new SpannableString(text1);
         string1.setSpan(new ClickableSpan() {
             @Override
