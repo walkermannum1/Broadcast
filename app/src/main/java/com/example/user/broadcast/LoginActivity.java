@@ -3,13 +3,18 @@ package com.example.user.broadcast;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by user on 2016/4/13.
@@ -22,6 +27,8 @@ public class LoginActivity extends BaseActivity {
     private EditText passwordEdit;
     private Button login;
     private CheckBox rememberPass;
+    private TextView register;
+    private TextView fogotPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +39,28 @@ public class LoginActivity extends BaseActivity {
         passwordEdit = (EditText) findViewById(R.id.password);
         rememberPass = (CheckBox) findViewById(R.id.remember_pass);
         login = (Button) findViewById(R.id.login);
+        register = (TextView) findViewById(R.id.register);
+        fogotPass = (TextView) findViewById(R.id.foget_pass);
+        String text1 = "Register";
+        String text2 = "Fogot password";
+        SpannableString string1 = new SpannableString(text1);
+        string1.setSpan(new ClickableSpan() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        }, 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        SpannableString string2 = new SpannableString(text2);
+        string2.setSpan(new ClickableSpan() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        }, 0, text2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         boolean isRemember = pref.getBoolean("remember_password", false);
         if (isRemember) {
             String account = pref.getString("account", "");
