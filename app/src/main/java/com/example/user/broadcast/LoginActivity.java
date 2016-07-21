@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ClickableSpan;
@@ -56,9 +57,13 @@ public class LoginActivity extends BaseActivity {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }
+            @Override
+            public void updateDrawState(TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setUnderlineText(false);
+            }
         }, 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         string1.setSpan(new ForegroundColorSpan(Color.CYAN), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        string1.setSpan(new StrikethroughSpan(), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         register.append(string1);
         register.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -68,6 +73,11 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
+            }
+            @Override
+            public void updateDrawState(TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setUnderlineText(false);
             }
         }, 0, text2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         string2.setSpan(new ForegroundColorSpan(Color.CYAN), 0, text2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
